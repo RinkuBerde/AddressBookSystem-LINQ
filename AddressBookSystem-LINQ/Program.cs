@@ -45,6 +45,10 @@
             //UC-05---->Retrieve based on city or state
             string var3 = dataTableManger.RetrieveBasedOnCityorState("Bareilly", "MH");
             Console.WriteLine("Success" + varl);
+
+            //UC-06---->count based on city or state
+            string var4 = dataTableManger.RetrieveCountBasedOnCityorState();
+            Console.WriteLine("Success" + varl);
         }
     }
 }

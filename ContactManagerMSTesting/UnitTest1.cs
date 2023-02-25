@@ -58,5 +58,14 @@ namespace ContactManagerMSTesting
             string actual = dataTableManger.RetrieveBasedOnCityorState("Mumbai", "MH");
             Assert.AreEqual(actual, expected);
         }
+        //UC-06----> Retrieve count values from DataTable based on City or State
+        [TestMethod]
+        [TestCategory("Retrieve Row in Data Table based on City ")]
+        public void GivenRetrieveCountQuery_BasedOnCityandState_returnString()
+        {
+            string expected = "1 2";
+            string actual = dataTableManger.RetrieveCountBasedOnCityorState();
+            Assert.AreEqual(actual, expected);
+        }
     }
 }
