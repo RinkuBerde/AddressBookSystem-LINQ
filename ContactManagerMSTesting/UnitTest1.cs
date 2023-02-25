@@ -67,5 +67,14 @@ namespace ContactManagerMSTesting
             string actual = dataTableManger.RetrieveCountBasedOnCityorState();
             Assert.AreEqual(actual, expected);
         }
+        //UC-07---->Sort based on City
+        [TestMethod]
+        [TestCategory("Sort based on City")]
+        public void GivenSortQuery_BasedOnCityandState_returnString()
+        {
+            string expected = "Abhi Rinku ";
+            string actual = dataTableManger.SortBasedOnNameInDataTable("Mumbai");
+            Assert.AreEqual(actual, expected);
+        }
     }
 }

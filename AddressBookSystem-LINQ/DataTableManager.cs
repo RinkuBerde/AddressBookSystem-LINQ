@@ -137,7 +137,7 @@ namespace AddressBookSystem_LINQ
             contactDataManagers.PhoneNumber = 7742905050;
             contactDataManagers.Email = "maneabhi@gmail.com";
             contactDataManagers.Address = "Sasthri street";
-            contactDataManagers.City = "Pune";
+            contactDataManagers.City = "Mumbai";
             contactDataManagers.State = "MH";
             contactDataManagers.zip = 123001;
             InsertintoDataTable(contactDataManagers);
@@ -215,6 +215,21 @@ namespace AddressBookSystem_LINQ
                 {
                     Console.WriteLine("{0} \t {1} \t {2} \t {3} \t {4} \t {5} \t {6} \t {7} \t {8}\n", dtRows["Contactid"], dtRows["FirstName"], dtRows["LastName"], dtRows["Address"], dtRows["City"], dtRows["State"], dtRows["Zip"], dtRows["PhoneNumber"], dtRows["Email"]);
                 }
+            }
+            return result;
+        }
+        //UC-07---> Sort based on City
+        public string SortBasedOnNameInDataTable(string City)
+        {
+            AddValues();
+            string result = "";
+            var modifiedList = (from ContactList in custTable.AsEnumerable() orderby ContactList.Field<string>("FirstName") where ContactList.Field<string>("City") == City select ContactList);
+            Console.WriteLine("After sorting");
+            foreach (var dtRows in modifiedList)
+            {
+                result += dtRows["FirstName"] + " ";
+                Console.WriteLine("{0} \t {1} \t {2} \t {3} \t {4} \t {5} \t {6} \t {7} \t {8}\n", dtRows["Contactid"], dtRows["FirstName"], dtRows["LastName"], dtRows["Address"], dtRows["City"], dtRows["State"], dtRows["Zip"], dtRows["PhoneNumber"], dtRows["Email"]);
+
             }
             return result;
         }

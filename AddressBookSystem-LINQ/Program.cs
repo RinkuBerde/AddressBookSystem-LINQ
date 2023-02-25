@@ -28,7 +28,7 @@
             contactDataManagers.PhoneNumber = 7742905050;
             contactDataManagers.Email = "maneabhi@gmail.com";
             contactDataManagers.Address = "sasthri street";
-            contactDataManagers.City = "Pune";
+            contactDataManagers.City = "Mumbai";
             contactDataManagers.State = "MH";
             contactDataManagers.zip = 123001;
             dataTableManger.InsertintoDataTable(contactDataManagers);
@@ -48,6 +48,10 @@
 
             //UC-06---->count based on city or state
             string var4 = dataTableManger.RetrieveCountBasedOnCityorState();
+            Console.WriteLine("Success" + varl);
+
+            //UC-07------>sort based on name in data table
+            string var5 = dataTableManger.SortBasedOnNameInDataTable("Mumbai");
             Console.WriteLine("Success" + varl);
         }
     }
