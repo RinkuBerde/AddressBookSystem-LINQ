@@ -113,5 +113,60 @@ namespace AddressBookSystem_LINQ
             // Add column to the DataColumnCollection.    
             custTable.Columns.Add(dtColumn);
         }
+        //UC02------->Insert values in Data Table
+        public int AddValues()
+        {
+            CreateDataTable();
+            //Create Object for DataTable
+            ContactDataManager contactDataManager = new ContactDataManager();
+            ContactDataManager contactDataManagers = new ContactDataManager();
+            //Insert Values into Table
+            contactDataManager.FirstName = "Rinku";
+            contactDataManager.LastName = "Berde";
+            contactDataManager.PhoneNumber = 1234567890;
+            contactDataManager.Email = "rinku@gmail.com";
+            contactDataManager.Address = "4,B Block,SP Nagar";
+            contactDataManager.City = "Mumbai";
+            contactDataManager.State = "MH";
+            contactDataManager.zip = 600072;
+            InsertintoDataTable(contactDataManager);
+
+            //Insert Values into Table
+            contactDataManagers.FirstName = "Abhi";
+            contactDataManagers.LastName = "Mane";
+            contactDataManagers.PhoneNumber = 7742905050;
+            contactDataManagers.Email = "maneabhi@gmail.com";
+            contactDataManagers.Address = "Sasthri street";
+            contactDataManagers.City = "Pune";
+            contactDataManagers.State = "MH";
+            contactDataManagers.zip = 123001;
+            InsertintoDataTable(contactDataManagers);
+
+            return custTable.Rows.Count;
+        }
+
+        //Insert values in Data Table
+        public void InsertintoDataTable(ContactDataManager contactDataManager)
+        {
+            DataRow dtRow = custTable.NewRow();
+            dtRow["FirstName"] = contactDataManager.FirstName;
+            dtRow["LastName"] = contactDataManager.LastName;
+            dtRow["Address"] = contactDataManager.Address;
+            dtRow["City"] = contactDataManager.City;
+            dtRow["State"] = contactDataManager.State;
+            dtRow["Zip"] = contactDataManager.zip;
+            dtRow["PhoneNumber"] = contactDataManager.PhoneNumber;
+            dtRow["Email"] = contactDataManager.Email;
+            custTable.Rows.Add(dtRow);
+
+        }
+        //Display all Values in DataRow
+        public void Display()
+        {
+            foreach (DataRow dtRows in custTable.Rows)
+            {
+                Console.WriteLine("{0} \t {1} \t {2} \t {3} \t {4} \t {5} \t {6} \t {7}\n", dtRows["FirstName"], dtRows["LastName"], dtRows["Address"], dtRows["City"], dtRows["State"], dtRows["Zip"], dtRows["PhoneNumber"], dtRows["Email"]);
+            }
+        }
     }
 }
