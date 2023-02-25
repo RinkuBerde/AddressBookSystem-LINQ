@@ -49,5 +49,14 @@ namespace ContactManagerMSTesting
             int actual = dataTableManger.DeleteRowInDataTable("Abhi");
             Assert.AreEqual(actual, expected);
         }
+        //UC-05----->Retrieve values from DataTable based on City or State
+        [TestMethod]
+        [TestCategory("Retrieve Row in Data Table based on City ")]
+        public void GivenRetrieveQuery_BasedOnCityandState_returnString()
+        {
+            string expected = "Rinku";
+            string actual = dataTableManger.RetrieveBasedOnCityorState("Mumbai", "MH");
+            Assert.AreEqual(actual, expected);
+        }
     }
 }
