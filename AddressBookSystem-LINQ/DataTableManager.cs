@@ -141,6 +141,16 @@ namespace AddressBookSystem_LINQ
             contactDataManagers.State = "MH";
             contactDataManagers.zip = 123001;
             InsertintoDataTable(contactDataManagers);
+            //UC09--->Add Duplicate Value
+            contactDataManagers.FirstName = "Abhi";
+            contactDataManagers.LastName = "Mane";
+            contactDataManagers.PhoneNumber = 7742905050;
+            contactDataManagers.Email = "maneabhi@gmail.com";
+            contactDataManagers.Address = "Sasthri street";
+            contactDataManagers.City = "Mumbai";
+            contactDataManagers.State = "MH";
+            contactDataManagers.zip = 123001;
+            InsertintoDataTable(contactDataManagers);
 
             return custTable.Rows.Count;
         }
