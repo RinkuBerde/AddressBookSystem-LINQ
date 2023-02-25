@@ -22,5 +22,23 @@ namespace ContactManagerMSTesting
             int actual = dataTableManger.AddValues();
             Assert.AreEqual(actual, expected);
         }
+
+        //UC03------->Ability to edit existing contact person using their name
+        [TestMethod]
+        [TestCategory("Modify Values in Data Table")]
+        public void GivenModifyValues_returnInteger()
+        {
+            int expected = 1;
+            int actual = dataTableManger.EditDataTable("Abhi", "Lastname");
+            Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        [TestCategory("Modify Values in Data Table-Negative Test Case")]
+        public void GivenWrong_ModifyValues_returnInteger()
+        {
+            int expected = 0;
+            int actual = dataTableManger.EditDataTable("mam", "Lastname");
+            Assert.AreEqual(actual, expected);
+        }
     }
 }

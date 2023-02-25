@@ -160,6 +160,19 @@ namespace AddressBookSystem_LINQ
             custTable.Rows.Add(dtRow);
 
         }
+        //UC03------->Ability to edit existing contact person using their name
+        public int EditDataTable(string FirstName, string ColumnName)
+        {
+            AddValues();
+            var modifiedList = (from ContactList in custTable.AsEnumerable() where ContactList.Field<string>("FirstName") == FirstName select ContactList).FirstOrDefault();
+            if (modifiedList != null)
+            {
+                modifiedList[ColumnName] = "Sing";
+                Display();
+                return 1;
+            }
+            else return 0;
+        }
         //Display all Values in DataRow
         public void Display()
         {
