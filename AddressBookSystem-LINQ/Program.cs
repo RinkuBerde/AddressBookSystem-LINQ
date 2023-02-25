@@ -37,6 +37,10 @@
             //UC-03---->Modify
             int varl = dataTableManger.EditDataTable("lalita", "Lastname");
             Console.WriteLine("Success" + varl);
+
+            //UC-04----->Delete
+            int var2 = dataTableManger.DeleteRowInDataTable("Abhi");
+            Console.WriteLine("Success" + varl);
         }
     }
 }

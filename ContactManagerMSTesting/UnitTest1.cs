@@ -40,5 +40,14 @@ namespace ContactManagerMSTesting
             int actual = dataTableManger.EditDataTable("mam", "Lastname");
             Assert.AreEqual(actual, expected);
         }
+        //UC-04---->Ability to delete a person using person'sname
+        [TestMethod]
+        [TestCategory("Delete Row in Data Table")]
+        public void GivenDeleteQuery_returnInteger()
+        {
+            int expected = 1;
+            int actual = dataTableManger.DeleteRowInDataTable("Abhi");
+            Assert.AreEqual(actual, expected);
+        }
     }
 }

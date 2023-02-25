@@ -173,6 +173,20 @@ namespace AddressBookSystem_LINQ
             }
             else return 0;
         }
+        //UC-04---->Ability to delete a person using person'sname
+        public int DeleteRowInDataTable(string FirstName)
+        {
+            AddValues();
+            var modifiedList = (from ContactList in custTable.AsEnumerable() where ContactList.Field<string>("FirstName") == FirstName select ContactList).FirstOrDefault();
+            if (modifiedList != null)
+            {
+                modifiedList.Delete();
+                Console.WriteLine("--- After Deletion ---");
+                Display();
+                return 1;
+            }
+            else return 0;
+        }
         //Display all Values in DataRow
         public void Display()
         {
